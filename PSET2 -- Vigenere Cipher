@@ -17,11 +17,16 @@ int main()
     scanf("%s", arr1);
     printf("\nYour key word: ");
     scanf("%s", arr2);
-    int n1 = strlen(arr1), n2 = strlen(arr2);
+    int n1 = strlen(arr1), n2 = strlen(arr2),d =0;
     for (int i=n2; n2 != n1; ++n2) {
         arr2[n2] = arr2[n2 % i];
     }
-    printf("\nYour ciphertext: %s", CypherC (arr1, arr2));
+    for (int k=0; k < n1; ++k) {
+        if ((arr1[k] > 'A' && arr1[k] < 'Z') && (arr2[k] > 'A' && arr2[k] < 'Z')) ++dem;
+    }
+    if (dem == n1)    
+        printf("\nYour ciphertext: %s", CypherC (arr1, arr2));
+    else printf("Please enter uppercase letter");
     return 0;
 }
 // Code by Hung Le Ba
