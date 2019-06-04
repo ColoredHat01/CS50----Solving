@@ -1,0 +1,27 @@
+#include <string.h>
+#include <stdio.h>
+
+char* CypherC(char v1[], char v2[]) {
+    int n = strlen(v1);
+    static char v3[200];
+    for(int i = 0; i < n; ++i) {
+        v3[i] = 'A' + (((v1[i] +v2[i]) % 130) % 26);
+    }
+    return v3;
+}
+
+int main()
+{
+    char arr1[200], arr2[50];
+    printf("Enter plaintext:  ");
+    scanf("%s", arr1);
+    printf("\nYour key word: ");
+    scanf("%s", arr2);
+    int n1 = strlen(arr1), n2 = strlen(arr2);
+    for (int i=n2; n2 != n1; ++n2) {
+        arr2[n2] = arr2[n2 % i];
+    }
+    printf("\nYour ciphertext: %s", CypherC (arr1, arr2));
+    return 0;
+}
+// Code by Hung Le Ba
